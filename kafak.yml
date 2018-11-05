@@ -1,0 +1,7 @@
+---
+- hosts: zoo
+  remote_user: root
+  tasks:
+    - shell : wget -O /root/kafka_2.10-0.10.2.1.tgz ftp://192.168.1.254/hadoop/kafka_2.10-0.10.2.1.tgz
+    - script : kafka.sh
+    

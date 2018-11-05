@@ -1,0 +1,19 @@
+---
+- hosts: zoo
+  remote_user: root
+  tasks:
+    - copy: 
+       src: /etc/hosts
+       dest: /etc/hosts
+    - yum:
+        name: java-1.8.0-openjdk
+        state: latest
+    - yum:
+        name: java-1.8.0-openjdk-devel
+        state: latest
+    - yum :
+        name : wget
+        state: latest
+    - shell : wget -O /root/zookeeper-3.4.10.tar.gz ftp://192.168.1.254/hadoop/zookeeper-3.4.10.tar.gz
+    - script : zoo.sh
+    
