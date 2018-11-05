@@ -1,0 +1,42 @@
+---
+- hosts: nn02
+  remote_user: root
+  tasks:
+    - authorized_key:
+        user: root
+        state: present
+        key: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
+        exclusive: True
+        manage_dir: True
+    - yum:
+        name: java-1.8.0-openjdk
+        state: latest
+    - yum:
+        name: java-1.8.0-openjdk-devel
+        state: latest
+    - yum :
+        name : wget
+        state: latest
+    - shell : wget -O /root/hadoop-2.7.6.tar.gz ftp://192.168.1.254/hadoop/hadoop-2.7.6.tar.gz
+    - script : hadoop.sh
+    - shell : mkdir /var/hadoop
+    - copy: 
+        src: core-site.xml.nfs
+        dest: /usr/local/hadoop/etc/hadoop/core-site.xml
+    - copy: 
+        src: hdfs-site.xml
+        dest: /usr/local/hadoop/etc/hadoop/
+    - copy: 
+        src: slaves
+        dest: /usr/local/hadoop/etc/hadoop/
+    - copy: 
+        src: yarn-site.xml 
+        dest: /usr/local/hadoop/etc/hadoop/
+    - copy: 
+        src: mapred-site.xml
+        dest: /usr/local/hadoop/etc/hadoop/
+    - shell : chown  -R 0.0  /usr/local/hadoop
+    
+
+
+ 

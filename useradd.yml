@@ -1,0 +1,6 @@
+---
+- hosts: nn01 nfsgw
+  remote_user: root
+  tasks: 
+    - shell: groupadd -g 800 tedu
+    - shell: useradd -u 800 -g 800 tedu

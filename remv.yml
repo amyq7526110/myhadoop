@@ -1,0 +1,14 @@
+---
+- hosts: nn01
+  remote_user: root
+  tasks:
+    - copy: 
+        src : slaves
+        dest: /usr/local/hadoop/etc/hadoop
+    - copy:
+        src: exclude
+        dest: /usr/local/hadoop/etc/hadoop
+    - copy:
+        src: hdfs-site.xml
+        dest: /usr/local/hadoop/etc/hadoop
+         

@@ -1,0 +1,17 @@
+---
+- hosts: hadoop
+  remote_user: root
+  tasks:
+    - yum:
+        name: java-1.8.0-openjdk
+        state: latest
+    - yum:
+        name: java-1.8.0-openjdk-devel
+        state: latest
+    - yum :
+        name : wget
+        state: latest
+    - shell : wget -O /root/hadoop-2.7.6.tar.gz ftp://192.168.1.254/hadoop/hadoop-2.7.6.tar.gz
+    - script : hadoop.sh
+    - shell : mkdir /var/hadoop
+    

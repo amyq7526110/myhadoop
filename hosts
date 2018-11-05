@@ -1,0 +1,11 @@
+[hadoop]
+nn02
+nn01
+node1
+node2
+node3
+[nfs]
+nfsgw
+[other]
+client
+

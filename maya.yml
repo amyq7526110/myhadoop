@@ -1,0 +1,12 @@
+---
+- hosts: all
+  remote_user: root
+  tasks:
+    - shell: rm -rf /var/hadoop/*
+    - copy: 
+        src: yarn-site.xml 
+        dest: /usr/local/hadoop/etc/hadoop/
+    - copy: 
+        src: mapred-site.xml
+        dest: /usr/local/hadoop/etc/hadoop/
+
