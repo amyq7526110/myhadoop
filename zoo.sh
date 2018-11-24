@@ -22,3 +22,8 @@
 
   done
   
+  echo ${HOSTNAME: -1:1} > /tmp/zookeeper/myid
+
+#  ansible zoo -m shell  -a "/usr/local/zookeeper/bin/zkServer.sh start"
+
+

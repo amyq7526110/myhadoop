@@ -8,3 +8,4 @@
         key: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
         exclusive: True
         manage_dir: True
+ 

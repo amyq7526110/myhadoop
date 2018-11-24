@@ -6,6 +6,8 @@ node2
 node3
 [nfs]
 nfsgw
-[other]
-client
-
+[zoo]
+zoo-0001
+zoo-0002
+zoo-0003
+observer4

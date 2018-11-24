@@ -1,0 +1,19 @@
+---
+- hosts: all
+  remote_user: root
+  tasks:
+    - shell : rm -rf /root/.ssh/known_hosts
+    - copy:
+        src: ssh_config
+        dest: /etc/ssh/ssh_config
+    - copy:
+        src: /root/.ssh/id_rsa
+        dest: /root/.ssh/id_rsa
+    - copy:
+        src: /root/.ssh/id_rsa.pub
+        dest: /root/.ssh/id_rsa.pub
+    - shell: chmod 0600 /root/.ssh/id_rsa
+    - copy:
+        src: /etc/hosts
+        dest: /etc/hosts
+

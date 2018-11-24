@@ -31,7 +31,7 @@
     </property>
     <property>
         <name>yarn.resourcemanager.zk-address</name>
-        <value>zoo1:2181,zoo2:2181,zoo3:2181</value>
+        <value>zoo-0001:2181,zoo-0002:2181,zoo-0003:2181</value>
     </property>
     <property>
         <name>yarn.resourcemanager.cluster-id</name>

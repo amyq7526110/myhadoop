@@ -1,13 +1,13 @@
 ---
-- hosts: hadoop 
+- hosts: nfsgw 
   remote_user: root
   tasks:
     - copy: 
         src: core-site.xml.nfs
         dest: /usr/local/hadoop/etc/hadoop/core-site.xml
     - copy: 
-        src: hdfs-site.xml
-        dest: /usr/local/hadoop/etc/hadoop/
+        src: hdfs-site.xml.nfs
+        dest: /usr/local/hadoop/etc/hadoop/hdfs-site.xml
     - copy: 
         src: slaves
         dest: /usr/local/hadoop/etc/hadoop/
@@ -17,4 +17,8 @@
     - copy: 
         src: mapred-site.xml
         dest: /usr/local/hadoop/etc/hadoop/
-    - shell : chown  -R 0.0  /usr/local/hadoop
+    - shell: chown  -R 0.0  /usr/local/hadoop
+#    - shell: mkdir  /usr/local/hadoop/logs
+#    - shell: mkdir /var/nfstmp
+    - shell: chown 800.800 /var/nfstmp
+    - shell: setfacl -m u:tedu:rwx /usr/local/hadoop/logs

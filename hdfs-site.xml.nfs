@@ -18,27 +18,63 @@
 
 <configuration>
     <property>
-        <name>dfs.namenode.http-address</name>
-        <value>nn01:50070</value>
-    </property>
-    <property>
-        <name>dfs.namenode.secondary.http-address</name>
-        <value>nn01:50090</value>
-    </property>
-    <property>
-        <name>dfs.replication</name>
-        <value>2</value>
-    </property>
-    <property>
-        <name>dfs.hosts.exclude</name>
-        <value>/usr/local/hadoop/etc/hadoop/exclude</value>
-    </property>
-    <property>
         <name>nfs.exports.allowed.hosts</name>
         <value>* rw</value>
     </property>
     <property>
         <name>nfs.dump.dir</name>
         <value>/var/nfstmp</value>
+    </property>
+    <property>
+        <name>dfs.replication</name>
+        <value>2</value>
+    </property>
+    <property>
+        <name>dfs.nameservices</name>
+        <value>nsd1806</value>
+    </property>
+    <property>
+        <name>dfs.ha.namenodes.nsd1806</name>
+        <value>nn1,nn2</value>
+    </property>
+    <property>
+        <name>dfs.namenode.rpc-address.nsd1806.nn1</name>
+        <value>nn01:8020</value>
+    </property>
+    <property>
+        <name>dfs.namenode.rpc-address.nsd1806.nn2</name>
+        <value>nn02:8020</value>
+    </property>
+    <property>
+        <name>dfs.namenode.http-address.nsd1806.nn1</name>
+        <value>nn01:50070</value>
+    </property>
+    <property>
+        <name>dfs.namenode.http-address.nsd1806.nn2</name>
+        <value>nn02:50070</value>
+    </property>
+    <property>
+        <name>dfs.namenode.shared.edits.dir</name>
+        <value>qjournal://node1:8485;node2:8485;node3:8485/nsd1806</value>
+    </property>
+    <property>
+        <name>dfs.journalnode.edits.dir</name>
+        <value>/var/hadoop/journal</value>
+    </property>
+    <property>
+        <name>dfs.client.failover.proxy.provider.nsd1806</name>
+        <value>org.apache.hadoop.hdfs.server.namenode.ha.ConfiguredFailoverProxyProvider</value>
+    </property>
+    <property>
+        <name>dfs.ha.fencing.methods</name>
+        <value>sshfence</value>
+    </property>
+    <property>
+        <name>dfs.ha.fencing.ssh.private-key-files</name>
+        <value>/root/.ssh/id_rsa</value>
+    </property>
+    <property>
+        <name>dfs.ha.automatic-failover.enabled</name>
+        <value>true</value>
     </property>
 </configuration>

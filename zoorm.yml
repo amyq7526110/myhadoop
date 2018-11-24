@@ -1,9 +1,8 @@
 ---
-- hosts: hadoop
+- hosts: zoo
   remote_user: root
   tasks:
-    - shell: rm -rf /usr/local/hadoop
-    - shell: rm -rf /var/hadoop/*     
+    - shell: rm -rf /usr/local/zookeeper
     - copy:
         src: /etc/hosts
         dest: /etc/hosts

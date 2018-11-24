@@ -18,6 +18,6 @@
     - yum :
         name : wget
         state: latest
-    - shell : wget -O /root/hadoop-2.7.6.tar.gz ftp://192.168.1.254/hadoop/hadoop-2.7.6.tar.gz
+    - shell : wget -O /root/hadoop-2.7.6.tar.gz ftp://172.16.0.196/hadoop/hadoop-2.7.6.tar.gz
     - script : hadoop.sh
     
